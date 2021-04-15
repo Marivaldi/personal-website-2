@@ -1,6 +1,10 @@
 <script>
     import { fly } from "svelte/transition";
+    import ProjectsContainer from "./ProjectsContainer.svelte";
+    import Project from "./Project.svelte";
+    import projects from "../site-data/projects";
     export let closeClicked = () => {};
+    console.log(projects);
 </script>
 
 <div in:fly={{ y: 650, duration: 2500 }} class="title-text center">
@@ -9,10 +13,19 @@
     <a class="close" on:click={closeClicked} />
     <p class="name">Projects</p>
     <p class="tagline">
-        Whether I made it through or burned out, these are the projects I worked
+        Whether I made it through or burned out, these are the projects that I worked
         on in my free time.
     </p>
-    <div />
+    <ProjectsContainer>
+        {#each projects as project}
+            <Project
+                title={project.title}
+                description={project.description}
+                linkToDemo={project.linkToDemo}
+                linkToSourceCode={project.linkToSourceCode}
+            />
+        {/each}
+    </ProjectsContainer>
 </div>
 
 <style>

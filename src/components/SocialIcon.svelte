@@ -7,12 +7,12 @@
 
 {#if linkToSocial === ""}
 	<!-- svelte-ignore a11y-missing-attribute -->
-	<a class="icon grow" on:click={onClick}>
+	<a class="icon grow center" on:click={onClick}>
 		<i class={fontAwesomeClass} />
 		<div class="icon-text">{linkText}</div>
 	</a>
 {:else}
-	<a href={linkToSocial} class="icon grow" on:click={onClick}>
+	<a href={linkToSocial} class="icon grow center" on:click={onClick}>
 		<i class={fontAwesomeClass} />
 		<div class="icon-text">{linkText}</div>
 	</a>
@@ -20,7 +20,7 @@
 
 <style>
 	.icon {
-		font-size: 2.2rem;
+		font-size: 2rem;
 		padding: 10px;
 		display: inline-block;
 	}

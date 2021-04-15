@@ -75,8 +75,4 @@
         font-size: 2.2rem;
         padding-bottom: 2%;
     }
-
-    .center {
-        text-align: center;
-    }
 </style>

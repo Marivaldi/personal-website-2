@@ -1,6 +1,8 @@
 <script>
+	import { fade, fly } from "svelte/transition";
 	let name = "Shayne Moore";
-	let visible = false;
+	let showWorkExperience = false;
+	let showProjects = false;
 
 	function calculateYearsOfExperience() {
 		var ageDifMs = Date.now() - new Date("03-06-2016");
@@ -33,35 +35,51 @@
 		};
 	}
 
+	function openProjects() {
+		showProjects = true;
+	}
+
+	function closeProjects() {
+		showProjects = false;
+	}
+
 	setTimeout(() => {
-		visible = true;
+		showWorkExperience = true;
 	}, 200);
 </script>
 
-<div class="title-text center">
-	<p class="name" in:typewriter={{ speed: 100 }}>{name}</p>
-	<p class="occupation">
-		Software Engineer II
-	</p>
-	{#if visible}
-		<p class="years-of-experience" in:typewriter={{ speed: 85}}>
-			{yearsOfExperience} years of experience
-		</p>
-	{/if}
+{#if !showProjects}
+	<div in:fade="{{duration:500}}" out:fade="{{duration:500}}" class="title-text center">
+		<p class="name">{name}</p>
+		<p class="occupation">Software Engineer II</p>
+		{#if showWorkExperience}
+			<p class="years-of-experience" in:typewriter={{ speed: 85 }}>
+				{yearsOfExperience} years of experience
+			</p>
+		{/if}
 
-	<a href="https://github.com/Marivaldi" class="icon">
-		<i class="fab fa-github" />
-		<div class="icon-text">GitHub</div>
-	</a>
-	<a href="/" class="icon">
-		<i class="fas fa-atom" />
-		<div class="icon-text">Projects</div>
-	</a>
-	<a href="https://www.linkedin.com/in/shayne-moore/" class="icon">
-		<i class="fab fa-linkedin-in" />
-		<div class="icon-text">LinkedIn</div>
-	</a>
-</div>
+		<a href="https://github.com/Marivaldi" class="icon grow">
+			<i class="fab fa-github" />
+			<div class="icon-text">GitHub</div>
+		</a>
+		<a class="icon grow" on:click={openProjects}>
+			<i class="fas fa-atom" />
+			<div class="icon-text">Projects</div>
+		</a>
+		<a href="https://www.linkedin.com/in/shayne-moore/" class="icon grow">
+			<i class="fab fa-linkedin-in" />
+			<div class="icon-text">LinkedIn</div>
+		</a>
+	</div>
+{/if}
+
+{#if showProjects}
+	<div in:fly={{ y: 100, duration: 2500 }} class="title-text center">
+		<a class="close" on:click={closeProjects}/>
+		<p class="name">Projects</p>
+		<p class="tagline">Whether I made it through or burned out, these are the projects I worked on in my free time.</p>
+	</div>
+{/if}
 
 <style>
 	.title-text {
@@ -79,6 +97,15 @@
 		color: #dbd19ad7;
 		font-family: "Barlow", sans-serif;
 		font-size: 2.5rem;
+	}
+
+	p.tagline {
+		color: #dbd19ad7;
+		font-family: "Barlow", sans-serif;
+		font-size: 1.6rem;
+		padding-top: 2%;
+		margin-left: 2%;
+		margin-right: 2%;
 	}
 
 	p.years-of-experience {
@@ -101,5 +128,32 @@
 
 	.center {
 		text-align: center;
+	}
+
+	.close {
+		position: absolute;
+		right: 32px;
+		top: 32px;
+		width: 32px;
+		height: 32px;
+		opacity: 0.5;
+	}
+	.close:hover {
+		opacity: 1;
+	}
+	.close:before,
+	.close:after {
+		position: absolute;
+		left: 15px;
+		content: " ";
+		height: 33px;
+		width: 2px;
+		background-color: #dbd19a;
+	}
+	.close:before {
+		transform: rotate(45deg);
+	}
+	.close:after {
+		transform: rotate(-45deg);
 	}
 </style>

@@ -15,7 +15,7 @@ body {
 }
 
 a {
-	color: rgb(0, 100, 200);
+	color: inherit;
 	text-decoration: none;
 }
 
@@ -66,3 +66,6 @@ button:not(:disabled):active {
 button:focus {
 	border-color: #666;
 }
+
+.grow { transition: all .2s ease-in-out; }
+.grow:hover { transform: scale(1.2); }

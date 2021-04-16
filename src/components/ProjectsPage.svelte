@@ -4,7 +4,6 @@
     import Project from "./Project.svelte";
     import projects from "../site-data/projects";
     export let closeClicked = () => {};
-    console.log(projects);
 </script>
 
 <div in:fly={{ y: 650, duration: 2500 }} class="title-text center">

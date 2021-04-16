@@ -2,18 +2,14 @@
     import { fade } from "svelte/transition";
     import SocialIcon from "./SocialIcon.svelte";
     import typewriter from "../animations/typewriter";
+    import {yearsSince} from "../functions/date";
 
     export let projectsClicked = () => {};
 
     let showWorkExperience = false;
 
-    function calculateYearsOfExperience() {
-        var ageDifMs = Date.now() - new Date("03-06-2016");
-        var ageDate = new Date(ageDifMs);
-        return Math.abs(ageDate.getUTCFullYear() - 1970);
-    }
-
-    let yearsOfExperience = calculateYearsOfExperience();
+    let theDateIStartedWorking = new Date("03-06-2016");
+    let yearsOfExperience = yearsSince(theDateIStartedWorking);
 
     setTimeout(() => {
         showWorkExperience = true;

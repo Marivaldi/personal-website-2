@@ -26,6 +26,11 @@ let projects = [
         title: "Raining, Cats, and Dogs",
         description: "This was my first attempt at a Discord Bot. It was meant to be a play on words. The bot would return one of three possible things: weather in a random place, a picture of a cat, or a picture of a dog. Built using JavaScript, DiscordJS, and Heroku",
         linkToSourceCode: "https://github.com/Marivaldi/raining-cats-and-dogs",
+    },
+    {
+        title: "Personal Website",
+        description: "Hey! You're here, so that means it's working. No need for that demo button, eh? With this website, I wanted to use a framework or language I'd never used before. I eventually landed on Svelte, a light-weight front-end framework. Hope you enjoyed checking out my projects!",
+        linkToSourceCode: "https://github.com/Marivaldi/personal-website-2",
     }
 ];
 

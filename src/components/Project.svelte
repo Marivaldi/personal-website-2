@@ -28,7 +28,7 @@
     .project {
         width: 95%;
         margin: 0 auto;
-        padding: 30px;
+        padding: 50px;
         text-align: left;
     }
 

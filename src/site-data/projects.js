@@ -17,6 +17,11 @@ let projects = [
         linkToDemo: "http://game-room-app.s3-website-us-east-1.amazonaws.com/"
     },
     {
+        title: "Explorable Worlds",
+        description: "Explorable worlds is a simple platform for building choose-your-own-adventure style stories. Sign up, use the tools to build your adventure, then share it with a friend. Built using Ruby on Rails.",
+        linkToDemo: "https://www.explorableworlds.com"
+    },
+    {
         title: "Point of Sale UI",
         description: "While working at NCR, I had a lot of ideas about improving the look and feel of the application I was working on. When I had some free time, I put together a quick mockup of what I thought it might look like. If you check out the demo, press the Checkout button to add a random item to the basket. Built using React, Redux, Bootstrap, and the Serverless Framework ",
         linkToSourceCode: "https://github.com/Marivaldi/serverless-point-of-sale-ui",

@@ -17,11 +17,13 @@
         />
     {/if}
 
-    <SocialIcon
-        linkToSocial={linkToSourceCode}
-        fontAwesomeClass="fas fa-code"
-        linkText="Code"
-    />
+    {#if linkToSourceCode !== ""}
+        <SocialIcon
+            linkToSocial={linkToSourceCode}
+            fontAwesomeClass="fas fa-code"
+            linkText="Code"
+        />
+    {/if}
 </div>
 
 <style>
